@@ -478,7 +478,6 @@ $inboundRules = [
     ['protocol' => 'tcp', 'ports' => 'all', 'sources' => ['addresses' => ['0.0.0.0/0', '::/0']]],
     ['protocol' => 'udp', 'ports' => 'all', 'sources' => ['addresses' => ['0.0.0.0/0', '::/0']]],
     ['protocol' => 'icmp', 'sources' => ['addresses' => ['0.0.0.0/0', '::/0']]],
-    ['protocol' => 'all', 'ports' => '0', 'sources' => ['addresses' => ['203.0.113.5']], 'action' => 'deny'],
 ];
 $outboundRules = [
     ['protocol' => 'tcp', 'ports' => 'all', 'destinations' => ['addresses' => ['0.0.0.0/0', '::/0']]],
