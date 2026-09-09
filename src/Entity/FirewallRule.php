@@ -22,7 +22,9 @@ abstract class FirewallRule extends AbstractEntity
 {
     public string $protocol;
 
-    public string $ports;
+    public ?string $ports;
+
+    public ?string $action;
 
     public function toArray(): array
     {
@@ -30,8 +32,14 @@ abstract class FirewallRule extends AbstractEntity
             'protocol' => $this->protocol,
         ];
 
-        if ('icmp' != $this->protocol) {
+        if ('icmp' !== $this->protocol && 'all' !== $this->protocol) {
             $data['ports'] = ('0' === $this->ports) ? 'all' : $this->ports;
+        } elseif ('all' === $this->protocol && isset($this->ports)) {
+            $data['ports'] = $this->ports;
+        }
+
+        if (isset($this->action)) {
+            $data['action'] = $this->action;
         }
 
         return $data;
