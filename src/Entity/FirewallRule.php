@@ -22,7 +22,7 @@ abstract class FirewallRule extends AbstractEntity
 {
     public string $protocol;
 
-    public ?string $ports;
+    public string $ports;
 
     public ?string $action;
 
